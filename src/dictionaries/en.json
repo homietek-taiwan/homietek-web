@@ -1,0 +1,334 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About Us",
+    "solutions": "Solutions",
+    "scenes": "Smart Scenes",
+    "portfolio": "Portfolio",
+    "support": "Support",
+    "bookNow": "Book Now"
+  },
+  "footer": {
+    "description": "HomieTek is your smart home expert. We dedicate ourselves to bringing the most advanced IoT technologies into every home to serve people and create a warmer living space.",
+    "solutionsTitle": "Solutions",
+    "solutionsList": [
+      "Smart Lighting",
+      "Smart Curtains",
+      "Home Security",
+      "Environment Monitoring"
+    ],
+    "contactTitle": "Contact Us",
+    "address": "Minsheng East Road, Zhongshan District, Taipei",
+    "phone": "02-2XXX-XXXX",
+    "hours": "Mon - Fri 09:00 - 18:00",
+    "copyright": "© 2024 HomieTek. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "home": {
+    "hero": {
+      "tag": "Premium Smart Living",
+      "title": "Smart Home<br/><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary\">That Understands You</span>",
+      "description": "Combining ultimate craftsmanship with advanced AI, HomieTek customizes a futuristic smart space.",
+      "primaryBtn": "Book Planning",
+      "secondaryBtn": "Latest Projects",
+      "bgImage": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+    },
+    "valueProps": {
+      "title": "Why Choose HomieTek",
+      "items": [
+        {
+          "icon": "architecture",
+          "title": "Professional Planning",
+          "desc": "One-stop planning from blueprints to construction."
+        },
+        {
+          "icon": "hub",
+          "title": "Full Integration",
+          "desc": "Perfectly link lighting, AC, and security seamlessly."
+        },
+        {
+          "icon": "support_agent",
+          "title": "Local Support",
+          "desc": "Dedicated tech team for immediate maintenance."
+        }
+      ]
+    },
+    "promo": {
+      "title": "最新優惠與活動",
+      "items": [
+        {
+          "tag": "限時優惠",
+          "title": "2024 新居落成智能套餐",
+          "desc": "全屋基礎燈控與窗簾方案，預約現折 30,000 元。",
+          "action": "查看方案"
+        },
+        {
+          "tag": "問卷調查",
+          "title": "智慧居家需求評估",
+          "desc": "完成三分鐘問卷即可索取「老屋改裝指南」電子書。",
+          "action": "立即填寫"
+        },
+        {
+          "tag": "精選文章",
+          "title": "光影魔術師：打造飯店級居家燈光",
+          "desc": "設計師教你運用色溫與照度，營造高質感的空間層次。",
+          "action": "閱讀全文"
+        }
+      ]
+    },
+    "instagram": {
+      "title": "追蹤 IG 掌握最新作品"
+    }
+  },
+  "about": {
+    "vision": {
+      "title": "Brand Vision",
+      "description": "Integrating technology into life to create the warmest home.",
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "coreValues": {
+      "title": "Core Values",
+      "items": [
+        {
+          "title": "Stability",
+          "desc": "Enterprise-grade architecture for 24hr stability.",
+          "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "title": "Customization",
+          "desc": "Tailored lifestyle scenes just for your family.",
+          "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "title": "Aesthetics",
+          "desc": "Hidden wiring and premium panel designs.",
+          "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    },
+    "team": {
+      "title": "Professional Team",
+      "description": "Experts with 100+ projects of experience in luxury homes."
+    },
+    "serviceFlow": {
+      "title": "專屬服務流程",
+      "steps": [
+        {
+          "title": "1. 需求諮詢",
+          "desc": "專人一對一了解您的空間需求與期望的生活情境。",
+          "icon": "forum"
+        },
+        {
+          "title": "2. 到府場勘",
+          "desc": "實地測量並評估弱電管線配置、網路環境與安防需求。",
+          "icon": "architecture"
+        },
+        {
+          "title": "3. 規劃提案",
+          "desc": "提供量身打造的智能佈線圖面與透明完整的建置報價。",
+          "icon": "description"
+        },
+        {
+          "title": "4. 施工建置",
+          "desc": "專業技術團隊進場，追求完美隱藏管線與絕佳的工藝。",
+          "icon": "construction"
+        },
+        {
+          "title": "5. 驗收教學",
+          "desc": "系統測試交付，指導APP操作，並提供長期的售後維護。",
+          "icon": "task_alt"
+        }
+      ]
+    }
+  },
+  "solutions": {
+    "title": "Solutions",
+    "subtitle": "Comprehensive Smart Experiences",
+    "tech": {
+      "title": "Four Tech Fields",
+      "items": [
+        {
+          "icon": "lightbulb",
+          "title": "Smart Lighting",
+          "desc": "Color temp adjustment and rhythms.",
+          "image": "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "icon": "curtains",
+          "title": "Smart Curtains",
+          "desc": "Timer and voice control.",
+          "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "icon": "security",
+          "title": "Home Security",
+          "desc": "Door lock monitoring and leak alerts.",
+          "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "icon": "air",
+          "title": "Environment",
+          "desc": "Air quality monitoring.",
+          "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    },
+    "space": {
+      "title": "Space Services",
+      "items": [
+        {
+          "title": "New Home Planning",
+          "desc": "Blueprint wiring design.",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "title": "Old Home Upgrade",
+          "desc": "Wireless upgrades.",
+          "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "title": "Offices",
+          "desc": "Energy savings.",
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    }
+  },
+  "scenes": {
+    "title": "Smart Scenes",
+    "description": "Switch your home state with a single button.",
+    "items": [
+      {
+        "id": "leave",
+        "icon": "logout",
+        "title": "Away Mode",
+        "desc": "Turn off appliances and arm security.",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "home",
+        "icon": "home",
+        "title": "Home Mode",
+        "desc": "Lights on, welcome music.",
+        "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "night",
+        "icon": "dark_mode",
+        "title": "Good Night",
+        "desc": "Dim lights, lock doors.",
+        "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "morning",
+        "icon": "wb_sunny",
+        "title": "Good Morning",
+        "desc": "Open curtains softly.",
+        "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "cinema",
+        "icon": "movie",
+        "title": "Cinema",
+        "desc": "Total blackout, projector down.",
+        "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "custom",
+        "icon": "tune",
+        "title": "Custom",
+        "desc": "Define your own daily routines.",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "filters": [
+      "All",
+      "Villas",
+      "Apartments",
+      "Renovations"
+    ],
+    "filterNeeds": [
+      "Lighting Art",
+      "Full Smart Home",
+      "Security"
+    ],
+    "cases": [
+      {
+        "id": "1",
+        "title": "Xinyi Minimalist Smart Home",
+        "category": "Apartments",
+        "need": "Full Smart Home",
+        "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80",
+        "info": {
+          "space": "150 sqm",
+          "layout": "3 Rooms",
+          "style": "Minimalist"
+        },
+        "requirement": "Voice control and senior-friendly lighting.",
+        "solution": "Full smart lighting and security applied.",
+        "quote": "\"HomieTek made our home feel like the future!\""
+      }
+    ]
+  },
+  "support": {
+    "title": "Support",
+    "flow": {
+      "title": "Service Flow",
+      "steps": [
+        "Consulting",
+        "Site Survey",
+        "Proposal",
+        "Installation",
+        "Warranty"
+      ]
+    },
+    "downloads": {
+      "title": "Downloads",
+      "items": [
+        "User Manual",
+        "FAQ"
+      ]
+    },
+    "repair": {
+      "title": "Repair",
+      "button": "Online Repair Form"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "area": "Project Area",
+      "time": "Est. Time",
+      "submit": "Submit",
+      "areaOptions": [
+        "請選擇區域",
+        "北部地區",
+        "中部地區",
+        "南部地區",
+        "東部及外島"
+      ],
+      "timeOptions": [
+        "請選擇時間",
+        "3個月內",
+        "半年內",
+        "一年內",
+        "尚未確定"
+      ]
+    },
+    "social": {
+      "title": "Follow Us",
+      "lineDesc": "立即掃描 QR Code 加入好友，享受最快的回覆與預約安排",
+      "otherTitle": "其他聯絡方式",
+      "email": "客服信箱",
+      "ig": "Instagram",
+      "fb": "Facebook"
+    }
+  }
+}

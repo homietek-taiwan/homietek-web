@@ -1,0 +1,334 @@
+{
+  "header": {
+    "home": "ホーム",
+    "about": "会社概要",
+    "solutions": "ソリューション",
+    "scenes": "スマートシーン",
+    "portfolio": "ポートフォリオ",
+    "support": "サポート",
+    "bookNow": "予約する"
+  },
+  "footer": {
+    "description": "HomieTekはあなたのスマートホームの専門家です。最先端のIoT技術を各家庭に導入し、テクノロジーが人に奉仕し、より暖かみのある生活空間を創り出すことに尽力しています。",
+    "solutionsTitle": "ソリューション",
+    "solutionsList": [
+      "スマート照明",
+      "スマートカーテン",
+      "ホームセキュリティ",
+      "環境モニタリング"
+    ],
+    "contactTitle": "お問い合わせ",
+    "address": "台北市中山区民生東路",
+    "phone": "02-2XXX-XXXX",
+    "hours": "月 - 金 09:00 - 18:00",
+    "copyright": "© 2024 HomieTek. All rights reserved.",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約"
+  },
+  "home": {
+    "hero": {
+      "tag": "Premium Smart Living",
+      "title": "暮らしを理解する<br/><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary\">スマートホーム</span>",
+      "description": "究極の職人技と高度なAI技術を組み合わせ、HomieTekは未来的なスマート空間をカスタマイズします。",
+      "primaryBtn": "プランを予約",
+      "secondaryBtn": "事例紹介",
+      "bgImage": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+    },
+    "valueProps": {
+      "title": "選ばれる理由",
+      "items": [
+        {
+          "icon": "architecture",
+          "title": "プロの計画",
+          "desc": "設計図から施工までワンストップで対応。"
+        },
+        {
+          "icon": "hub",
+          "title": "完全統合",
+          "desc": "照明、エアコン、セキュリティをシームレスにリンク。"
+        },
+        {
+          "icon": "support_agent",
+          "title": "現地サポート",
+          "desc": "専任の技術チームが即時対応。"
+        }
+      ]
+    },
+    "promo": {
+      "title": "最新優惠與活動",
+      "items": [
+        {
+          "tag": "限時優惠",
+          "title": "2024 新居落成智能套餐",
+          "desc": "全屋基礎燈控與窗簾方案，預約現折 30,000 元。",
+          "action": "查看方案"
+        },
+        {
+          "tag": "問卷調查",
+          "title": "智慧居家需求評估",
+          "desc": "完成三分鐘問卷即可索取「老屋改裝指南」電子書。",
+          "action": "立即填寫"
+        },
+        {
+          "tag": "精選文章",
+          "title": "光影魔術師：打造飯店級居家燈光",
+          "desc": "設計師教你運用色溫與照度，營造高質感的空間層次。",
+          "action": "閱讀全文"
+        }
+      ]
+    },
+    "instagram": {
+      "title": "追蹤 IG 掌握最新作品"
+    }
+  },
+  "about": {
+    "vision": {
+      "title": "ビジョン",
+      "description": "テクノロジーを生活に取り入れ、最も温かい家を。",
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "coreValues": {
+      "title": "コアバリュー",
+      "items": [
+        {
+          "title": "安定性",
+          "desc": "24時間安定稼働のエンタープライズアーキテクチャ。",
+          "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "title": "カスタマイズ",
+          "desc": "ご家族に合わせたライフスタイルシーン。",
+          "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "title": "美学",
+          "desc": "隠し配線と高級パネルデザイン。",
+          "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    },
+    "team": {
+      "title": "専門チーム",
+      "description": "100以上のラグジュアリーホームでの経験を持つ専門家。"
+    },
+    "serviceFlow": {
+      "title": "專屬服務流程",
+      "steps": [
+        {
+          "title": "1. 需求諮詢",
+          "desc": "專人一對一了解您的空間需求與期望的生活情境。",
+          "icon": "forum"
+        },
+        {
+          "title": "2. 到府場勘",
+          "desc": "實地測量並評估弱電管線配置、網路環境與安防需求。",
+          "icon": "architecture"
+        },
+        {
+          "title": "3. 規劃提案",
+          "desc": "提供量身打造的智能佈線圖面與透明完整的建置報價。",
+          "icon": "description"
+        },
+        {
+          "title": "4. 施工建置",
+          "desc": "專業技術團隊進場，追求完美隱藏管線與絕佳的工藝。",
+          "icon": "construction"
+        },
+        {
+          "title": "5. 驗收教學",
+          "desc": "系統測試交付，指導APP操作，並提供長期的售後維護。",
+          "icon": "task_alt"
+        }
+      ]
+    }
+  },
+  "solutions": {
+    "title": "ソリューション",
+    "subtitle": "総合的なスマート体験",
+    "tech": {
+      "title": "4つの技術分野",
+      "items": [
+        {
+          "icon": "lightbulb",
+          "title": "スマート照明",
+          "desc": "色温度調整とリズム。",
+          "image": "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "icon": "curtains",
+          "title": "スマートカーテン",
+          "desc": "タイマーと音声制御。",
+          "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "icon": "security",
+          "title": "ホームセキュリティ",
+          "desc": "ドアロック監視と水漏れアラート。",
+          "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "icon": "air",
+          "title": "環境モニタリング",
+          "desc": "空気質監視。",
+          "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    },
+    "space": {
+      "title": "空間サービス",
+      "items": [
+        {
+          "title": "新築計画",
+          "desc": "設計図面での配線設計。",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "title": "古い家のアップグレード",
+          "desc": "ワイヤレスアップグレード。",
+          "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "title": "オフィス",
+          "desc": "省エネソリューション。",
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    }
+  },
+  "scenes": {
+    "title": "スマートシーン",
+    "description": "ボタン1つで家の状態を切り替えます。",
+    "items": [
+      {
+        "id": "leave",
+        "icon": "logout",
+        "title": "外出モード",
+        "desc": "家電をオフにし、セキュリティを起動。",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "home",
+        "icon": "home",
+        "title": "帰宅モード",
+        "desc": "照明をつけ、歓迎の音楽を鳴らします。",
+        "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "night",
+        "icon": "dark_mode",
+        "title": "おやすみモード",
+        "desc": "照明を暗くし、ドアをロック。",
+        "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "morning",
+        "icon": "wb_sunny",
+        "title": "おはようモード",
+        "desc": "カーテンを静かに開けます。",
+        "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "cinema",
+        "icon": "movie",
+        "title": "シアターモード",
+        "desc": "完全遮光しプロジェクターを下げます。",
+        "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "custom",
+        "icon": "tune",
+        "title": "カスタム",
+        "desc": "毎日のルーティンを独自に定義。",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "ポートフォリオ",
+    "filters": [
+      "全て",
+      "別荘",
+      "マンション",
+      "リノベーション"
+    ],
+    "filterNeeds": [
+      "照明美学",
+      "フルスマートホーム",
+      "セキュリティ"
+    ],
+    "cases": [
+      {
+        "id": "1",
+        "title": "信義区ミニマリストスマートホーム",
+        "category": "マンション",
+        "need": "フルスマートホーム",
+        "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80",
+        "info": {
+          "space": "150 sqm",
+          "layout": "3部屋",
+          "style": "ミニマリスト"
+        },
+        "requirement": "音声制御と高齢者に優しい照明。",
+        "solution": "スマート照明とセキュリティを全面導入。",
+        "quote": "「HomieTekは私たちの家を未来のように感じさせてくれました！」"
+      }
+    ]
+  },
+  "support": {
+    "title": "サポート",
+    "flow": {
+      "title": "サービスの流れ",
+      "steps": [
+        "コンサルティング",
+        "現地調査",
+        "提案",
+        "インストール",
+        "保証"
+      ]
+    },
+    "downloads": {
+      "title": "ダウンロード",
+      "items": [
+        "ユーザーマニュアル",
+        "FAQ"
+      ]
+    },
+    "repair": {
+      "title": "修理",
+      "button": "オンライン修理フォーム"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "form": {
+      "name": "名前",
+      "phone": "電話番号",
+      "email": "メール",
+      "area": "地域",
+      "time": "予定時期",
+      "submit": "提出する",
+      "areaOptions": [
+        "請選擇區域",
+        "北部地區",
+        "中部地區",
+        "南部地區",
+        "東部及外島"
+      ],
+      "timeOptions": [
+        "請選擇時間",
+        "3個月內",
+        "半年內",
+        "一年內",
+        "尚未確定"
+      ]
+    },
+    "social": {
+      "title": "フォローする",
+      "lineDesc": "立即掃描 QR Code 加入好友，享受最快的回覆與預約安排",
+      "otherTitle": "其他聯絡方式",
+      "email": "客服信箱",
+      "ig": "Instagram",
+      "fb": "Facebook"
+    }
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "header": {
+    "home": "首頁",
+    "about": "關於我們",
+    "solutions": "解決方案",
+    "scenes": "智慧場景",
+    "portfolio": "作品案例",
+    "support": "服務支援",
+    "bookNow": "立即預約"
+  },
+  "footer": {
+    "description": "合米科技是您的智慧居家專家，我們致力於將最先進的物聯網技術帶入每個家庭，讓科技服務於人，創造更有溫度的生活空間。",
+    "solutionsTitle": "解決方案",
+    "solutionsList": [
+      "全屋智能燈光",
+      "智慧窗簾控制",
+      "居家安防系統",
+      "環境監測系統"
+    ],
+    "contactTitle": "聯絡我們",
+    "address": "台北市中山區民生東路",
+    "phone": "02-2XXX-XXXX",
+    "hours": "週一至週五 09:00 - 18:00",
+    "copyright": "© 2024 HomieTek 合米科技. All rights reserved.",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  },
+  "home": {
+    "hero": {
+      "tag": "Premium Smart Living",
+      "title": "懂您生活的<br/><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary\">智慧居家</span>",
+      "description": "融合極致工藝與先進技術，為您量身打造未來感智慧空間。感受光影律動與全方位安防的極致體驗。",
+      "primaryBtn": "立即預約規劃",
+      "secondaryBtn": "最新作品快訊",
+      "bgImage": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+    },
+    "valueProps": {
+      "title": "為什麼選擇合米",
+      "items": [
+        {
+          "icon": "architecture",
+          "title": "專業規劃",
+          "desc": "從圖面到施工，提供一站式專業弱電與智能規劃。"
+        },
+        {
+          "icon": "hub",
+          "title": "全屋整合",
+          "desc": "打破品牌壁壘，將燈光、空調、安防完美聯動。"
+        },
+        {
+          "icon": "support_agent",
+          "title": "在地服務",
+          "desc": "專屬技術團隊，提供最即時的售後維護與支援。"
+        }
+      ]
+    },
+    "promo": {
+      "title": "最新優惠與活動",
+      "items": [
+        {
+          "tag": "限時優惠",
+          "title": "2024 新居落成智能套餐",
+          "desc": "全屋基礎燈控與窗簾方案，預約現折 30,000 元。",
+          "action": "查看方案"
+        },
+        {
+          "tag": "問卷調查",
+          "title": "智慧居家需求評估",
+          "desc": "完成三分鐘問卷即可索取「老屋改裝指南」電子書。",
+          "action": "立即填寫"
+        },
+        {
+          "tag": "精選文章",
+          "title": "光影魔術師：打造飯店級居家燈光",
+          "desc": "設計師教你運用色溫與照度，營造高質感的空間層次。",
+          "action": "閱讀全文"
+        }
+      ]
+    },
+    "instagram": {
+      "title": "追蹤 IG 掌握最新作品"
+    }
+  },
+  "about": {
+    "vision": {
+      "title": "品牌願景",
+      "description": "讓科技隱於無形，讓溫暖成為日常。我們深信，真正的智能居家不僅是冷硬的設備連動，而是能讀懂您生活習慣、體貼每個日常細節的貼心伴侶。透過極致工藝與美學設計，為您打造兼具科技感與溫度的未來之家。",
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "serviceFlow": {
+      "title": "專屬服務流程",
+      "steps": [
+        {
+          "title": "1. 需求諮詢",
+          "desc": "專人一對一了解您的空間需求與期望的生活情境。",
+          "icon": "forum"
+        },
+        {
+          "title": "2. 到府場勘",
+          "desc": "實地測量並評估弱電管線配置、網路環境與安防需求。",
+          "icon": "architecture"
+        },
+        {
+          "title": "3. 規劃提案",
+          "desc": "提供量身打造的智能佈線圖面與透明完整的建置報價。",
+          "icon": "description"
+        },
+        {
+          "title": "4. 施工建置",
+          "desc": "專業技術團隊進場，追求完美隱藏管線與絕佳的工藝。",
+          "icon": "construction"
+        },
+        {
+          "title": "5. 驗收教學",
+          "desc": "系統測試交付，指導APP操作，並提供長期的售後維護。",
+          "icon": "task_alt"
+        }
+      ]
+    },
+    "coreValues": {
+      "title": "核心價值",
+      "items": [
+        {
+          "title": "穩定性",
+          "desc": "採用企業級架構與有線/無線雙軌配置，確保系統24小時穩定運作。",
+          "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "title": "客製化",
+          "desc": "每個家庭的作息不同，我們為您量身打造專屬的生活情境。",
+          "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "title": "美學規劃",
+          "desc": "隱藏式佈線與高質感面板設計，與您的室內裝潢完美融合。",
+          "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    },
+    "team": {
+      "title": "專業團隊",
+      "description": "由資深弱電工程師、照明設計師與軟體整合專家組成，具備百場以上豪宅與商辦建置經驗。"
+    }
+  },
+  "solutions": {
+    "title": "解決方案",
+    "subtitle": "打造全方位的智慧體驗",
+    "tech": {
+      "title": "四大技術領域",
+      "items": [
+        {
+          "image": "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=80",
+          "title": "全屋智能燈光",
+          "desc": "完美調配居家氛圍，從早晨的自然喚醒到夜晚的舒眠光線，色溫與亮度自動流轉。"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80",
+          "title": "智慧窗簾控制",
+          "desc": "陽光就是最好的鬧鐘。支援語音開合與智慧光照感應，讓每一天的開始充滿質感。"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80",
+          "title": "居家安防系統",
+          "desc": "出門在外也能隨時掌握家中狀況。無死角監控、電子鎖連動與異常即時推播防護。"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
+          "title": "環境監測系統",
+          "desc": "持續為健康把關。即時偵測溫濕度與空氣品質，自動啟動空調與新風過濾系統。"
+        }
+      ]
+    },
+    "space": {
+      "title": "空間服務類型",
+      "items": [
+        {
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+          "title": "新家裝潢燈光規劃",
+          "desc": "從預售屋/毛胚屋一開始的智控佈線規劃，打造無懈可擊的光影層次與生活美學。"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
+          "title": "老屋改智能",
+          "desc": "以最新無線穩定協議進行升級，省去打牆拆裝的繁雜工序，迅速讓高齡舊宅重拾新生。"
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+          "title": "商業空間/辦公室",
+          "desc": "全面自動化節能方案，一鍵切換會議、簡報與辦公情境，大幅提升營運效率與企業形象。"
+        }
+      ]
+    }
+  },
+  "scenes": {
+    "title": "智慧場景",
+    "description": "只需一個按鈕，讓家瞬間切換至最理想的狀態。",
+    "items": [
+      {
+        "id": "leave",
+        "icon": "logout",
+        "image": "/videos/0424_goOutside.mp4",
+        "title": "一鍵出門",
+        "desc": "燈光全關、冷氣關閉、掃地機器人啟動、安防開啟。"
+      },
+      {
+        "id": "home",
+        "icon": "home",
+        "image": "/videos/0424_welcomeHome.mp4",
+        "title": "歡迎回家",
+        "desc": "玄關燈亮、窗簾拉開、輕音樂響起。"
+      },
+      {
+        "id": "night",
+        "icon": "dark_mode",
+        "image": "/videos/0424_goodNight.mp4",
+        "title": "晚安模式",
+        "desc": "緩緩調暗燈光、鎖定門禁、開啟睡眠空調模式。"
+      },
+      {
+        "id": "morning",
+        "icon": "wb_sunny",
+        "image": "/videos/0424_wakeup.mp4",
+        "title": "早安起床",
+        "desc": "窗簾緩緩開啟、早報音樂播放。"
+      },
+      {
+        "id": "cinema",
+        "icon": "movie",
+        "image": "/videos/0424_movieMode.mp4",
+        "title": "劇院模式",
+        "desc": "燈光全暗、窗簾關閉、投影幕降下。"
+      },
+      {
+        "id": "custom",
+        "icon": "tune",
+        "image": "/videos/0424_followingLight.mp4",
+        "title": "客製化場景",
+        "desc": "強調可以根據使用者生活習慣定義專屬日常。"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "作品案例",
+    "filters": [
+      "所有作品",
+      "豪宅別墅",
+      "大樓住宅",
+      "老屋翻新"
+    ],
+    "filterNeeds": [
+      "燈光美學",
+      "全屋智能",
+      "安全防護"
+    ],
+    "cases": [
+      {
+        "id": "1",
+        "title": "信義區極簡智能宅",
+        "category": "大樓住宅",
+        "need": "全屋智能",
+        "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80",
+        "info": {
+          "space": "45坪",
+          "layout": "3房2廳",
+          "style": "現代簡約"
+        },
+        "requirement": "希望能語音控制全屋、家有長輩需要感應燈光。",
+        "solution": "此案採用了全屋智能燈光與安防系統。",
+        "quote": "「合米的規劃讓我們一回家就像進到未來世界，長輩半夜起床也安全多了！」"
+      }
+    ]
+  },
+  "support": {
+    "title": "服務支援",
+    "flow": {
+      "title": "服務流程",
+      "steps": [
+        "諮詢",
+        "現場場勘",
+        "規劃提案",
+        "安裝調試",
+        "售後保固"
+      ]
+    },
+    "downloads": {
+      "title": "下載專區",
+      "items": [
+        "APP 使用手冊",
+        "常見問題 (FAQ)"
+      ]
+    },
+    "repair": {
+      "title": "維修報修",
+      "button": "線上報修表單"
+    }
+  },
+  "contact": {
+    "title": "立即預約 / 聯絡我們",
+    "form": {
+      "name": "姓名",
+      "phone": "聯絡電話",
+      "email": "電子郵件",
+      "area": "新家所在區域",
+      "areaOptions": [
+        "請選擇區域",
+        "北部地區",
+        "中部地區",
+        "南部地區",
+        "東部及外島"
+      ],
+      "time": "預計裝潢時間",
+      "timeOptions": [
+        "請選擇時間",
+        "3個月內",
+        "半年內",
+        "一年內",
+        "尚未確定"
+      ],
+      "submit": "送出預約"
+    },
+    "social": {
+      "title": "官方 LINE (主要聯絡)",
+      "lineDesc": "立即掃描 QR Code 加入好友，享受最快的回覆與預約安排",
+      "otherTitle": "其他聯絡方式",
+      "email": "客服信箱",
+      "ig": "Instagram",
+      "fb": "Facebook"
+    }
+  }
+}
