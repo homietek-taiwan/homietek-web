@@ -10,6 +10,7 @@ import { useParams } from 'next/navigation';
 // ============================================================
 
 const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || 'https://indexed-artwork-batman-usgs.trycloudflare.com/webhook/homietek-chat';
+const N8N_POLL_URL = process.env.NEXT_PUBLIC_N8N_POLL_URL || 'https://indexed-artwork-batman-usgs.trycloudflare.com/webhook/homietek-chat-poll';
 
 // ============================================================
 // 語系文本定義 (i18n)
@@ -45,6 +46,24 @@ const CHAT_DICTS: Record<string, any> = {
 };
 
 // ============================================================
+// 訪客身分與持久化記憶工具
+// ============================================================
+function getOrCreateVisitorId(): string {
+  if (typeof window === 'undefined') return '#20260706-0000';
+  const stored = localStorage.getItem('homietek_visitor_id');
+  if (stored && stored !== '#20260706-0000') return stored;
+  
+  const now = new Date();
+  const dateStr = now.getFullYear().toString() + 
+    (now.getMonth() + 1).toString().padStart(2, '0') + 
+    now.getDate().toString().padStart(2, '0');
+  const randomNum = Math.floor(1000 + Math.random() * 9000);
+  const newId = `#${dateStr}-${randomNum}`;
+  localStorage.setItem('homietek_visitor_id', newId);
+  return newId;
+}
+
+// ============================================================
 // AI 客服聊天視窗
 // ============================================================
 
@@ -55,15 +74,80 @@ interface ChatMessage {
 }
 
 function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () => void; lang: string }) {
+  const [visitorId, setVisitorId] = useState<string>('');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const t = CHAT_DICTS[lang] || CHAT_DICTS['zh-TW'];
 
+  // 1. 初始化讀取訪客 ID 與本地對話紀錄 (重新整理不遺失)
+  useEffect(() => {
+    const id = getOrCreateVisitorId();
+    setVisitorId(id);
+    if (typeof window !== 'undefined') {
+      const savedMsg = localStorage.getItem(`homietek_chat_history_${id}`);
+      if (savedMsg) {
+        try {
+          setMessages(JSON.parse(savedMsg));
+        } catch {}
+      }
+    }
+  }, []);
+
+  // 2. 對話紀錄變更時自動保存 localStorage
+  useEffect(() => {
+    if (visitorId && messages.length > 0 && typeof window !== 'undefined') {
+      localStorage.setItem(`homietek_chat_history_${visitorId}`, JSON.stringify(messages));
+    }
+  }, [messages, visitorId]);
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
+
+  // 3. 背景 3 秒非同步輪詢機制 (Polling) - 接收 AI 核准或老闆手打回覆
+  useEffect(() => {
+    if (!isOpen || !visitorId) return;
+    const pollInterval = setInterval(async () => {
+      try {
+        const res = await fetch(N8N_POLL_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          body: JSON.stringify({
+            visitorId,
+            lastMsgCount: messages.length,
+            lang: lang || 'zh-TW',
+          }),
+        });
+        if (!res.ok) return;
+        let data = await res.json();
+        if (typeof data === 'string') {
+          try { data = JSON.parse(data); } catch {}
+        }
+        
+        // 如果回傳的是等待中或系統狀態，直接忽略
+        if (!data || data.status === 'waiting' || data.status === 'received' || (typeof data.reply === 'string' && data.reply.includes('"status":"received"'))) {
+          return;
+        }
+
+        // 當 n8n 有最新回覆 (AI 擬稿或老闆手打字)
+        if (data.reply && typeof data.reply === 'string' && data.reply.trim() && !data.reply.includes('"status":')) {
+          setMessages(prev => {
+            if (prev.some(m => m.content === data.reply)) return prev;
+            return [...prev, { role: 'assistant', content: data.reply, sender: data.sender || t.defaultSender }];
+          });
+          setLoading(false);
+        } else if (Array.isArray(data.messages) && data.messages.length > messages.length) {
+          setMessages(data.messages);
+          setLoading(false);
+        }
+      } catch {
+        // 背景輪詢網路異常靜默處理，不打擾用戶 UI
+      }
+    }, 3000);
+    return () => clearInterval(pollInterval);
+  }, [isOpen, visitorId, messages.length, lang, t.defaultSender]);
 
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
@@ -78,22 +162,44 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify({
           event: 'ai_chat',
+          visitorId,
           message: userMsg,
           timestamp: new Date().toISOString(),
           lang: lang || 'zh-TW',
         }),
       });
-      const data = await res.json();
-      const reply = data.output || data.reply || data.message || data.text || JSON.stringify(data);
-      const senderName = data.sender || t.defaultSender;
-      setMessages(prev => [...prev, { role: 'assistant', content: reply, sender: senderName }]);
+      const rawData = await res.json();
+      let data = rawData;
+      if (typeof rawData === 'string') {
+        try { data = JSON.parse(rawData); } catch {}
+      }
+      
+      // 非同步秒回接收模式 (status: received) -> 保持 loading 轉圈，等 3 秒輪詢自動更新結果！
+      if (
+        data.status === 'received' || 
+        data.status === 'waiting' || 
+        (typeof rawData === 'string' && rawData.includes('status')) ||
+        (typeof data === 'string' && data.includes('status')) ||
+        data.output === '' || 
+        !data.output
+      ) {
+        setLoading(true);
+      } else {
+        const reply = data.output || data.reply || data.message || data.text || JSON.stringify(data);
+        if (typeof reply === 'string' && reply.includes('"status":"received"')) {
+          setLoading(true);
+          return;
+        }
+        const senderName = data.sender || t.defaultSender;
+        setMessages(prev => [...prev, { role: 'assistant', content: reply, sender: senderName }]);
+        setLoading(false);
+      }
     } catch {
       setMessages(prev => [...prev, {
         role: 'assistant',
         content: t.error,
         sender: 'System Notice',
       }]);
-    } finally {
       setLoading(false);
     }
   };
@@ -107,7 +213,10 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
         <div className="bg-gradient-to-r from-primary to-secondary p-4 flex items-center justify-between shadow-md">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-white text-lg">smart_toy</span>
-            <span className="text-white font-bold">{t.title}</span>
+            <div className="flex flex-col">
+              <span className="text-white font-bold leading-tight">{t.title}</span>
+              {visitorId && <span className="text-[10px] text-white/75 font-mono tracking-wider">ID: {visitorId}</span>}
+            </div>
           </div>
           <button onClick={onClose} className="text-white/80 hover:text-white transition-colors">
             <span className="material-symbols-outlined text-lg">close</span>
