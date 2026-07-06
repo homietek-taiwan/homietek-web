@@ -25,7 +25,8 @@ const TAWK_WIDGET_ID = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID || '1jspg1m89';
 // 在 n8n 建立 Workflow → Webhook 節點（POST）→ 傳給 PI Agent
 // ============================================================
 
-const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || '';
+const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || 'https://indexed-artwork-batman-usgs.trycloudflare.com/webhook/homietek-chat';
+
 
 // ============================================================
 // AI 客服聊天視窗

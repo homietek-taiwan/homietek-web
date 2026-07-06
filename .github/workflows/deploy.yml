@@ -35,8 +35,9 @@ jobs:
         env:
           NEXT_PUBLIC_TAWK_PROPERTY_ID: "6a4a7f31ddba321d4575c90d"
           NEXT_PUBLIC_TAWK_WIDGET_ID: "1jspg1m89"
-          NEXT_PUBLIC_N8N_WEBHOOK_URL: ""
+          NEXT_PUBLIC_N8N_WEBHOOK_URL: "https://indexed-artwork-batman-usgs.trycloudflare.com/webhook/homietek-chat"
           NEXT_PUBLIC_BASE_PATH: "/homietek-web"
+
 
 
 

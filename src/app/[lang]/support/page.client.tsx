@@ -3,7 +3,8 @@
 import { useState } from 'react';
 
 // n8n Webhook URL — 部署前請填入實際 URL
-const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || '';
+const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || 'https://indexed-artwork-batman-usgs.trycloudflare.com/webhook/homietek-chat';
+
 
 interface FormData {
   name: string;
