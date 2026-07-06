@@ -16,8 +16,8 @@ declare global {
 // 填入 .env.local 中的 NEXT_PUBLIC_TAWK_PROPERTY_ID 和 NEXT_PUBLIC_TAWK_WIDGET_ID
 // ============================================================
 
-const TAWK_PROPERTY_ID = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID || '';
-const TAWK_WIDGET_ID = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID || '';
+const TAWK_PROPERTY_ID = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID || '6a4a7f31ddba321d4575c90d';
+const TAWK_WIDGET_ID = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID || '1jspg1m89';
 
 // ============================================================
 // n8n Webhook URL（串接本地 PI Agent）
@@ -159,7 +159,6 @@ function AIChatWindow({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 
 export default function FloatingChat() {
   const [showAIChat, setShowAIChat] = useState(false);
-  const [showOptions, setShowOptions] = useState(false);
 
   // Tawk.to 載入
   useEffect(() => {
@@ -185,51 +184,17 @@ export default function FloatingChat() {
       {/* AI 客服聊天視窗 */}
       <AIChatWindow isOpen={showAIChat} onClose={() => setShowAIChat(false)} />
 
-      {/* 選項選單 */}
-      {showOptions && (
-        <div className="fixed bottom-24 right-6 z-50 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 w-64 animate-fade-in">
-          <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-3">選擇客服方式：</p>
-          <div className="space-y-2">
-            {n8nReady && (
-              <button
-                onClick={() => { setShowAIChat(true); setShowOptions(false); }}
-                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors text-left"
-              >
-                <span className="material-symbols-outlined text-primary text-lg">smart_toy</span>
-                <div>
-                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">AI 智能客服</p>
-                  <p className="text-xs text-slate-400">24h 自動回答</p>
-                </div>
-              </button>
-            )}
-            {tawkReady && (
-              <button
-                onClick={() => {
-                  if (typeof window !== 'undefined' && window.Tawk_API) {
-                    window.Tawk_API.maximize();
-                  }
-                  setShowOptions(false);
-                }}
-                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors text-left"
-              >
-                <span className="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <div>
-                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">真人客服</p>
-                  <p className="text-xs text-slate-400">即時線上聊天</p>
-                </div>
-              </button>
-            )}
-          </div>
-          <button
-            onClick={() => setShowOptions(false)}
-            className="w-full mt-3 text-xs text-slate-400 hover:text-slate-600 transition-colors"
-          >
-            取消
-          </button>
-        </div>
+      {/* 浮動按鈕：當 Tawk.to 啟用時，改由 Tawk.to 原生右下角氣泡展示，刪除原本會重疊的自訂按鈕 */}
+      {!tawkReady && n8nReady && (
+        <button
+          onClick={() => setShowAIChat(true)}
+          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-primary to-secondary text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform"
+          aria-label="AI 客服"
+        >
+          <span className="material-symbols-outlined text-lg">smart_toy</span>
+        </button>
       )}
 
-      {/* 浮動按鈕 */}
       {!tawkReady && !n8nReady && (
         <a
           href="#support"
@@ -238,16 +203,7 @@ export default function FloatingChat() {
           <span className="material-symbols-outlined text-lg">chat</span>
         </a>
       )}
-
-      {(tawkReady || n8nReady) && (
-        <button
-          onClick={() => setShowOptions(prev => !prev)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-primary to-secondary text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform"
-          aria-label="客服"
-        >
-          <span className="material-symbols-outlined text-lg">chat</span>
-        </button>
-      )}
     </>
   );
 }
+
