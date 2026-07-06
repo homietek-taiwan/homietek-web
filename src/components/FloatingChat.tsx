@@ -2,24 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-// Tawk.to 全域型別宣告
-declare global {
-  interface Window {
-    Tawk_API?: { maximize: () => void };
-  }
-}
-
-// ============================================================
-// Tawk.to 客服系統
-// ============================================================
-// 到 https://admin.tawk.to 註冊 → 建立 Property → 取得 Widget ID
-// 填入 .env.local 中的 NEXT_PUBLIC_TAWK_PROPERTY_ID 和 NEXT_PUBLIC_TAWK_WIDGET_ID
 // ============================================================
 
-const TAWK_PROPERTY_ID = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID || '6a4a7f31ddba321d4575c90d';
-const TAWK_WIDGET_ID = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID || '1jspg1m89';
-
-// ============================================================
 // n8n Webhook URL（串接本地 PI Agent）
 // ============================================================
 // 在 n8n 建立 Workflow → Webhook 節點（POST）→ 傳給 PI Agent
@@ -162,50 +146,22 @@ function AIChatWindow({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 export default function FloatingChat() {
   const [showAIChat, setShowAIChat] = useState(false);
 
-  // Tawk.to 載入
-  useEffect(() => {
-    if (TAWK_PROPERTY_ID && TAWK_WIDGET_ID) {
-      var Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement('script');
-        var s0 = document.getElementsByTagName('script')[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/' + TAWK_PROPERTY_ID + '/' + TAWK_WIDGET_ID;
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode?.insertBefore(s1, s0);
-      })();
-    }
-  }, []);
-
-  const tawkReady = !!(TAWK_PROPERTY_ID && TAWK_WIDGET_ID);
-  const n8nReady = !!N8N_WEBHOOK_URL;
-
   return (
     <>
       {/* AI 客服聊天視窗 */}
       <AIChatWindow isOpen={showAIChat} onClose={() => setShowAIChat(false)} />
 
-      {/* 浮動按鈕：當 Tawk.to 啟用時，改由 Tawk.to 原生右下角氣泡展示，刪除原本會重疊的自訂按鈕 */}
-      {!tawkReady && n8nReady && (
-        <button
-          onClick={() => setShowAIChat(true)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-primary to-secondary text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform"
-          aria-label="AI 客服"
-        >
-          <span className="material-symbols-outlined text-lg">smart_toy</span>
-        </button>
-      )}
-
-      {!tawkReady && !n8nReady && (
-        <a
-          href="#support"
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-primary to-secondary text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform"
-        >
-          <span className="material-symbols-outlined text-lg">chat</span>
-        </a>
-      )}
+      {/* 網站唯一的專屬 AI 智能客服浮動按鈕 */}
+      <button
+        onClick={() => setShowAIChat(true)}
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-gradient-to-r from-primary via-indigo-600 to-secondary text-white rounded-full px-5 py-3.5 shadow-2xl hover:scale-105 hover:shadow-primary/50 transition-all duration-300 border border-white/20 group"
+        aria-label="AI 智能客服"
+      >
+        <span className="material-symbols-outlined text-xl animate-bounce">smart_toy</span>
+        <span className="font-bold text-sm tracking-wider">AI 智能客服</span>
+      </button>
     </>
   );
 }
+
 
