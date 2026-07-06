@@ -9,6 +9,7 @@ export default function Header({ dict }: { dict: any }) {
   const currentLang = params.lang as string;
   const router = useRouter();
   const pathname = usePathname();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLang = e.target.value;
@@ -21,11 +22,12 @@ export default function Header({ dict }: { dict: any }) {
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <Link href={`/${currentLang}`} className="flex items-center gap-3">
-          <Image src="/logo.png" alt="HomieTek Logo" width={40} height={40} className="h-10 w-auto object-contain" />
+          <Image src={`${basePath}/logo.png`} alt="HomieTek Logo" width={40} height={40} className="h-10 w-auto object-contain" />
           <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
             合米科技 <span className="text-primary">HomieTek</span>
           </h2>
         </Link>
+
 
         <nav className="hidden md:flex items-center gap-8">
           <Link href={`/${currentLang}/about`} className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">

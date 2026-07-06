@@ -36,6 +36,8 @@ jobs:
           NEXT_PUBLIC_TAWK_PROPERTY_ID: ""
           NEXT_PUBLIC_TAWK_WIDGET_ID: ""
           NEXT_PUBLIC_N8N_WEBHOOK_URL: ""
+          NEXT_PUBLIC_BASE_PATH: "/homietek-web"
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -2,14 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer({ dict, lang }: { dict: any, lang: string }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   return (
     <footer className="bg-slate-900 py-16 border-t border-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-2">
             <Link href={`/${lang}`} className="block mb-6">
-              <Image src="/logo.png" alt="HomieTek Logo" width={32} height={32} className="h-8 w-auto filter brightness-0 invert opacity-90" />
+              <Image src={`${basePath}/logo.png`} alt="HomieTek Logo" width={32} height={32} className="h-8 w-auto filter brightness-0 invert opacity-90" />
             </Link>
+
             <p className="text-slate-400 max-w-sm mb-8 leading-relaxed">
               {dict.footer.description}
             </p>
