@@ -149,7 +149,7 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
     return () => clearInterval(pollInterval);
   }, [isOpen, visitorId, messages.length, lang, t.defaultSender]);
 
-  // 4. 防無限轉圈安全機制 (Timeout Safeguard)：當 loading 超過 45 秒沒有回應，自動優雅解除並提示專員處理
+  // 4. 防無限轉圈安全機制 (Timeout Safeguard)：當 loading 超過 90 秒沒有回應，自動優雅解除並提示專員處理
   useEffect(() => {
     if (!loading) return;
     const timeout = setTimeout(() => {
@@ -159,7 +159,7 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
         content: '🧑‍💼 【客服中心通知】目前諮詢人潮較多，AI 運算或連線稍有延遲。我們已將您的提問轉交給技術專員，專員將在稍後為您回覆，請您稍候！',
         sender: '合米技術專員 (系統轉介)',
       }]);
-    }, 45000);
+    }, 90000);
     return () => clearTimeout(timeout);
   }, [loading]);
 
