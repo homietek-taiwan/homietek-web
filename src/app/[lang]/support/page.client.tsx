@@ -28,7 +28,8 @@ export default function SupportPageClient() {
       if (N8N_WEBHOOK_URL) {
         await fetch(N8N_WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+
           body: JSON.stringify({
             event: 'support_form',
             name: form.name,
