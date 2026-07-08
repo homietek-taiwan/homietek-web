@@ -68,6 +68,7 @@ function getOrCreateVisitorId(): string {
 // ============================================================
 
 interface ChatMessage {
+  id?: string | number;
   role: 'user' | 'assistant';
   content: string;
   sender?: string;
@@ -81,24 +82,32 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const t = CHAT_DICTS[lang] || CHAT_DICTS['zh-TW'];
 
-  // 1. 初始化讀取訪客 ID 與本地對話紀錄 (重新整理不遺失)
+  // 1. 初始化讀取訪客 ID 與本地對話紀錄
   useEffect(() => {
     const id = getOrCreateVisitorId();
     setVisitorId(id);
     if (typeof window !== 'undefined') {
-      const savedMsg = localStorage.getItem(`homietek_chat_history_${id}`);
-      if (savedMsg) {
-        try {
-          setMessages(JSON.parse(savedMsg));
-        } catch {}
+      const lastActiveStr = localStorage.getItem('homietek_chat_last_active');
+      const now = Date.now();
+      const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+      
+      if (lastActiveStr && (now - parseInt(lastActiveStr, 10)) > SEVEN_DAYS_MS) {
+        localStorage.removeItem(`homietek_chat_history_${id}`);
+        localStorage.setItem('homietek_chat_last_active', now.toString());
+      } else {
+        const savedMsg = localStorage.getItem(`homietek_chat_history_${id}`);
+        if (savedMsg) {
+          try { setMessages(JSON.parse(savedMsg)); } catch {}
+        }
       }
     }
   }, []);
 
-  // 2. 對話紀錄變更時自動保存 localStorage
+  // 2. 對話紀錄變更時自動保存 localStorage 且更新最後活動時間戳記
   useEffect(() => {
     if (visitorId && messages.length > 0 && typeof window !== 'undefined') {
       localStorage.setItem(`homietek_chat_history_${visitorId}`, JSON.stringify(messages));
+      localStorage.setItem('homietek_chat_last_active', Date.now().toString());
     }
   }, [messages, visitorId]);
 
@@ -106,7 +115,7 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
-  // 3. 背景 3 秒非同步輪詢機制 (Polling) - 接收 AI 核准或老闆手打回覆
+  // 3. 背景 3 秒輪詢 — 後端讀後清除，前端只需追加新訊息
   useEffect(() => {
     if (!isOpen || !visitorId) return;
     const pollInterval = setInterval(async () => {
@@ -114,11 +123,7 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
         const res = await fetch(N8N_POLL_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json; charset=utf-8' },
-          body: JSON.stringify({
-            visitorId,
-            lastMsgCount: messages.length,
-            lang: lang || 'zh-TW',
-          }),
+          body: JSON.stringify({ visitorId, lang: lang || 'zh-TW' }),
         });
         if (!res.ok) return;
         let data = await res.json();
@@ -126,28 +131,36 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
           try { data = JSON.parse(data); } catch {}
         }
         
-        // 如果回傳的是等待中或系統狀態，直接忽略
-        if (!data || data.status === 'waiting' || data.status === 'received' || (typeof data.reply === 'string' && data.reply.includes('"status":"received"'))) {
-          return;
-        }
+        if (!data || data.status === 'waiting' || data.status === 'received') return;
 
-        // 當 n8n 有最新回覆 (AI 擬稿或老闆手打字)
-        if (data.reply && typeof data.reply === 'string' && data.reply.trim() && !data.reply.includes('"status":')) {
+        // 後端已讀後清除，每次回傳的都是新訊息，直接追加
+        if (Array.isArray(data.replies) && data.replies.length > 0) {
           setMessages(prev => {
-            if (prev.some(m => m.content === data.reply)) return prev;
-            return [...prev, { role: 'assistant', content: data.reply, sender: data.sender || t.defaultSender }];
+            let newMsgs = [...prev];
+            data.replies.forEach((r: any) => {
+              if (r && r.content && typeof r.content === 'string' && r.content.trim()) {
+                // 以 id 排重防止極端情況下的重複（如網路重試）
+                const exists = r.id && newMsgs.some(m => m.id === r.id);
+                if (!exists) {
+                  newMsgs.push({ 
+                    id: r.id || `${Date.now()}_${Math.random()}`,
+                    role: 'assistant', 
+                    content: r.content, 
+                    sender: r.sender || data.sender || t.defaultSender 
+                  });
+                }
+              }
+            });
+            return newMsgs;
           });
-          setLoading(false);
-        } else if (Array.isArray(data.messages) && data.messages.length > messages.length) {
-          setMessages(data.messages);
           setLoading(false);
         }
       } catch {
-        // 背景輪詢網路異常靜默處理，不打擾用戶 UI
+        // 背景輪詢網路異常靜默處理
       }
     }, 3000);
     return () => clearInterval(pollInterval);
-  }, [isOpen, visitorId, messages.length, lang, t.defaultSender]);
+  }, [isOpen, visitorId, lang, t.defaultSender]);
 
   // 4. 防無限轉圈安全機制 (Timeout Safeguard)：當 loading 超過 90 秒沒有回應，自動優雅解除並提示專員處理
   useEffect(() => {
@@ -261,7 +274,7 @@ function AIChatWindow({ isOpen, onClose, lang }: { isOpen: boolean; onClose: () 
                   </span>
                 </div>
               )}
-              <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm leading-relaxed ${
+              <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm leading-relaxed whitespace-pre-wrap ${
                 msg.role === 'user'
                   ? 'bg-primary text-white rounded-br-xs font-medium'
                   : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-bl-xs'
