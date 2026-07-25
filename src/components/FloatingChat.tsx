@@ -9,8 +9,8 @@ import { useParams } from 'next/navigation';
 // 在 n8n 建立 Workflow → Webhook 節點（POST）→ 傳給 PI Agent
 // ============================================================
 
-const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || 'https://tribute-blogs-bradley-stations.trycloudflare.com/webhook/homietek-chat';
-const N8N_POLL_URL = process.env.NEXT_PUBLIC_N8N_POLL_URL || 'https://tribute-blogs-bradley-stations.trycloudflare.com/webhook/homietek-chat-poll';
+const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || 'https://loud-shepherd-gst-tested.trycloudflare.com/webhook/homietek-chat';
+const N8N_POLL_URL = process.env.NEXT_PUBLIC_N8N_POLL_URL || 'https://loud-shepherd-gst-tested.trycloudflare.com/webhook/homietek-chat-poll';
 
 // ============================================================
 // 語系文本定義 (i18n)
